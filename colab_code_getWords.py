@@ -1,0 +1,5 @@
+words = pd.read_csv('wordsPath',sep='\n')
+words.rename({'a1':'Word'},axis='columns',inplace=True)
+words['CharLen'] = words['Word'].str.len()
+words.sort_values(by='CharLen',inplace=True)
+words_groups = words.groupby(by='CharLen')
